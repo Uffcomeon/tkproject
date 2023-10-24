@@ -1,38 +1,107 @@
-#TIMETABLE PROJECT-THIS SHIT SUCKS! PIKA-PIKA!--EVEN MY PIKACHU AGREES:)
+'''
+  _______                __        __    __       
+ /_  __(_)___ ___  ___  / /_____ _/ /_  / /__     
+  / / / / __ `__ \/ _ \/ __/ __ `/ __ \/ / _ \    
+ / / / / / / / / /  __/ /_/ /_/ / /_/ / /  __/    
+/_/_/_/_/ /_/ /_/\___/\__/\__,_/_.___/_/\___/     
+  / ____/__  ____  ___  _________ _/ /_____  _____
+ / / __/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/
+/ /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /    
+\____/\___/_/ /_/\___/_/   \__,_/\__/\____/_/  
+Built by:
+Aditi
+Pavani
+Shivakshi                                                   
+'''
+
 from tkinter import *
 from tkinter import ttk
-root=Tk()
-root.title('Automated timetable maker')
-root.geometry('900x400')
-root.minsize(900,400)
+
+
+# welcome window
+def splash_screen():
+    splash_root = Tk()
+
+    width = (
+        splash_root.winfo_screenwidth()
+    )  # to make the welcome window the size of the user's screen
+    height = splash_root.winfo_screenheight()
+    splash_root.geometry(f"{width}x{height}")
+    splash_label = Label(
+        splash_root, text="Welcome :)", font=("Rosewood Std Regular", 50)
+    )  # text on the welcome screen
+    splash_label.pack()
+    
+    return splash_root
+
+
+
+
+# Subject Selection Screen
 def s():
-    window=Tk()
-    window.title('subject selection')
-    window.geometry('400x250')
-    l1=Label(window,text='select your subject from the below drop down list')
-    l1.place(x=20,y=5)
-    i=StringVar()
-    list1=['Maths','Physics','Chemistry','Biology','Computer science']
-    sub=OptionMenu(window,i,*list1)
-    i.set('select subject')
+    window = Tk()
+    window.title("subject selection")
+    window.geometry("400x250")
+    l1 = Label(window, text="select your subject from the below drop down list")
+    l1.place(x=20, y=5)
+    i = StringVar()
+    list1 = ["Maths", "Physics", "Chemistry", "Biology", "Computer science"]
+    sub = OptionMenu(window, i, *list1)
+    i.set("select subject")
     sub.config(width=15)
-    sub.place(x=50,y=50)
+    sub.place(x=50, y=50)
+
+
+# Teacher Selection Screen
 def t():
-    window2=Tk()
-    window2.title('Add Teachers')
-    window2.geometry('400x250')
-    l2=Label(window2,text='Name:')
+    window2 = Tk()
+    window2.title("Add Teachers")
+    window2.geometry("400x250")
+    l2 = Label(window2, text="Name:")
     l2.pack()
-    l2.place(x=20,y=5)
-    e=Entry(window2,width=50)
+    l2.place(x=20, y=5)
+    e = Entry(window2, width=50)
     e.pack
-    e.place(x=80,y=5)
-    submit=ttk.Button(window2,text='SUBMIT')
-    submit.place(x=120,y=80)    
-sub=ttk.Button(root,text='ADD SUBJECT',command=s)
-sub.place(x=1,y=2)
-teacher=ttk.Button(root,text='ADD TEACHER',command=t)
-teacher.place(x=150,y=5)
-profile=ttk.Button(root,text='INFO') #PLS CHANGE THE SHAPE TO THAT OF A CIRCLE
-profile.place(x=800,y=2)
-root.mainloop()
+    e.place(x=80, y=5)
+    submit = ttk.Button(window2, text="SUBMIT")
+    submit.place(x=120, y=80)
+
+
+# Prepare the root window
+# Define the root window   
+'''we're defining root window as a function so we can control when it's called.Otherwise, bc python is an interpreted language, it'll run line by line and we wont be able to cntrol when it runs'''
+def root_window():        
+    root = Tk()
+    root.title("Automated timetable maker")
+    width = (
+        root.winfo_screenwidth()
+    )  # to make window the size of the user's screen
+    height = root.winfo_screenheight()
+    root.geometry(f"{width}x{height}")
+    root.minsize(900, 400)
+    sub = ttk.Button(root, text="ADD SUBJECT", command=s)
+    sub.place(x=1, y=2)
+    teacher = ttk.Button(root, text="ADD TEACHER", command=t)
+    teacher.place(x=150, y=5)
+    profile = ttk.Button(root, text="INFO")  # PLS CHANGE THE SHAPE TO THAT OF A CIRCLE
+    profile.place(x=800, y=2)
+    return root
+
+def run_mainloop():  #again defining it as a function to control when it's run
+    # destroy the splash screen
+    splash_root.destroy()
+    # create and run the main screen
+    root = root_window()
+    root.mainloop()
+
+# 1 Second in milliseconds
+SECOND = 1000  #python considers time in milliseconds
+
+# create the splash screen
+splash_root = splash_screen()
+# setup the main screen to run 1 second after the splash screen
+# pass the `run_mainloop` function as a variable to the after function
+#splash screen timer
+splash_root.after(1 * SECOND, run_mainloop)  #calling run_mainloop and not run_mainloop() because we want it to go to the function and execute it,not call the function itself
+# run the splash screen
+splash_root.mainloop()
