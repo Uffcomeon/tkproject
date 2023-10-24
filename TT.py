@@ -1,4 +1,4 @@
-'''
+"""
   _______                __        __    __       
  /_  __(_)___ ___  ___  / /_____ _/ /_  / /__     
   / / / / __ `__ \/ _ \/ __/ __ `/ __ \/ / _ \    
@@ -12,7 +12,7 @@ Built by:
 Aditi
 Pavani
 Shivakshi                                                   
-'''
+"""
 
 from tkinter import *
 from tkinter import ttk
@@ -31,10 +31,8 @@ def splash_screen():
         splash_root, text="Welcome :)", font=("Rosewood Std Regular", 50)
     )  # text on the welcome screen
     splash_label.pack()
-    
+
     return splash_root
-
-
 
 
 # Subject Selection Screen
@@ -68,14 +66,14 @@ def t():
 
 
 # Prepare the root window
-# Define the root window   
-'''we're defining root window as a function so we can control when it's called.Otherwise, bc python is an interpreted language, it'll run line by line and we wont be able to cntrol when it runs'''
-def root_window():        
+# Define the root window
+"""we're defining root window as a function so we can control when it's called.Otherwise, bc python is an interpreted language, it'll run line by line and we wont be able to cntrol when it runs"""
+
+
+def root_window():
     root = Tk()
     root.title("Automated timetable maker")
-    width = (
-        root.winfo_screenwidth()
-    )  # to make window the size of the user's screen
+    width = root.winfo_screenwidth()  # to make window the size of the user's screen
     height = root.winfo_screenheight()
     root.geometry(f"{width}x{height}")
     root.minsize(900, 400)
@@ -83,25 +81,42 @@ def root_window():
     sub.place(x=1, y=2)
     teacher = ttk.Button(root, text="ADD TEACHER", command=t)
     teacher.place(x=150, y=5)
-    profile = ttk.Button(root, text="INFO")  # PLS CHANGE THE SHAPE TO THAT OF A CIRCLE
-    profile.place(x=800, y=2)
+
+    # information icon
+    prof_button = PhotoImage(file=r"C:\Users\ITS\Desktop\i_btn.png", height=30)
+    prof_label = (
+        Button(
+            root,
+            text="info",
+            image=prof_button,
+            # Change this function to the thing you want to show for information
+            command=lambda: print("button clicked"),
+        )
+        .pack(side=TOP)
+        .place(x=500, y=2)
+    )
+
     return root
 
-def run_mainloop():  #again defining it as a function to control when it's run
+
+def run_mainloop():  # again defining it as a function to control when it's run
     # destroy the splash screen
     splash_root.destroy()
     # create and run the main screen
     root = root_window()
     root.mainloop()
 
-# 1 Second in milliseconds
-SECOND = 1000  #python considers time in milliseconds
+
+# 1 Second in miliseconds
+SECOND = 1000  # python considers time in milliseconds
 
 # create the splash screen
 splash_root = splash_screen()
 # setup the main screen to run 1 second after the splash screen
 # pass the `run_mainloop` function as a variable to the after function
-#splash screen timer
-splash_root.after(1 * SECOND, run_mainloop)  #calling run_mainloop and not run_mainloop() because we want it to go to the function and execute it,not call the function itself
+# splash screen timer
+splash_root.after(
+    1 * SECOND, run_mainloop
+)  # calling run_mainloop and not run_mainloop() because we want it to go to the function and execute it,not call the function itself
 # run the splash screen
 splash_root.mainloop()
