@@ -51,7 +51,7 @@ def s():
     i.set("select subject")
     sub.config(width=15)
     sub.place(x=50, y=50)
-    submit = ttk.Button(window, text="SUBMIT")
+    submit = ttk.Button(window, text="ENTER")
     submit.place(x=200, y=80)
 
 
