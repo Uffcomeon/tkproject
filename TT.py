@@ -14,6 +14,24 @@ Pavani
 Shivakshi                                                   
 """
 
+'''from tkinter import*
+window_sub=Tk()
+window_sub.geometry('300x300')
+l1=Label(window_sub,text='Type down the subject you wish to add',font=('arial',10))
+l1.place(x=20,y=20)
+sub=StringVar()
+entry1=Entry(window_sub,textvar=sub)
+entry1.place(x=40,y=50)
+def p():
+    Sub=sub.get()
+def quit():
+    exit()
+    
+subbutton=Button(window_sub,text='Add',fg='white',bg='red',command=p)
+subbutton.place(x=40,y=100)
+subbutton2=Button(window_sub,text='Quit',fg='white',bg='red',command=quit)
+subbutton2.place(x=80,y=100)
+window_sub.mainloop()'''
 from tkinter import *
 from tkinter import ttk
 
@@ -40,19 +58,33 @@ def splash_screen():
 
 # Subject Selection Screen
 def s():
-    window = Tk()
-    window.title("subject selection")
-    window.geometry("400x250")
-    l1 = Label(window, text="Select your subject from the drop down list below")
-    l1.place(x=20, y=5)
-    i = StringVar()
-    list1 = ["Maths", "Physics", "Chemistry", "Biology", "Computer science"]
-    sub = OptionMenu(window, i, *list1)
-    i.set("select subject")
-    sub.config(width=15)
-    sub.place(x=50, y=50)
-    submit = ttk.Button(window, text="ENTER")
-    submit.place(x=200, y=80)
+       window_sub=Tk()
+       window_sub.geometry('300x300')
+       l1=Label(window_sub,text='Type down the subject you wish to add',font=('arial',10))
+       l1.place(x=20,y=20)
+       l2=Label(window_sub,text='Enter duration',font=('arial',10))
+       l2.place(x=20,y=80)
+       sub=StringVar()
+       duration=StringVar()
+       entry1=Entry(window_sub,textvar=sub)
+       entry1.place(x=40,y=50)
+       entry2=Entry(window_sub,textvar=duration)
+       entry2.place(x=40,y=100)
+       def p():
+            Sub=sub.get()
+       def dur():
+           Dur=dur.get()
+
+            
+       def quit():
+            exit()
+    
+       subbutton=Button(window_sub,text='Add',fg='white',bg='red',command=p)
+       subbutton.place(x=40,y=200)
+       subbutton2=Button(window_sub,text='Quit',fg='white',bg='red',command=quit)
+       subbutton2.place(x=80,y=200)
+       window_sub.mainloop()
+
 
 
 # Teacher Selection Screen
