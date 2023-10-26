@@ -28,7 +28,7 @@ def splash_screen():
     height = splash_root.winfo_screenheight()
     splash_root.geometry(f"{width}x{height}")
     splash_label = Label(
-        splash_root, text="Welcome :)", font=("Rosewood Std Regular", 50)
+        splash_root, text="WELCOME :)", font=("Rosewood Std Regular", 50)
     )  # text on the welcome screen
     splash_label.pack()
 
