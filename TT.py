@@ -21,7 +21,7 @@ from tkinter import ttk
 # welcome window
 def splash_screen():
     splash_root = Tk()
-    splash_root.configure(bg='cyan')
+    #splash_root.configure(bg='cyan')
     width = (
         splash_root.winfo_screenwidth()
     )  # to make the welcome window the size of the user's screen
