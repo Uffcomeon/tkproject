@@ -108,7 +108,7 @@ def root_window():
             command=info_window
         )
         .pack(side=TOP)
-        .place(x=500, y=2)
+        .place(x=500, y=100)
     )
 
     return root
