@@ -43,7 +43,7 @@ def s():
     window = Tk()
     window.title("subject selection")
     window.geometry("400x250")
-    l1 = Label(window, text="select your subject from the below drop down list")
+    l1 = Label(window, text="Select your subject from the drop down list below")
     l1.place(x=20, y=5)
     i = StringVar()
     list1 = ["Maths", "Physics", "Chemistry", "Biology", "Computer science"]
@@ -51,6 +51,8 @@ def s():
     i.set("select subject")
     sub.config(width=15)
     sub.place(x=50, y=50)
+    submit = ttk.Button(window, text="SUBMIT")
+    submit.place(x=200, y=80)
 
 
 # Teacher Selection Screen
