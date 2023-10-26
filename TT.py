@@ -30,7 +30,10 @@ def splash_screen():
     splash_label = Label(
         splash_root, text="WELCOME", font=("newspaper", 50)
     )  # text on the welcome screen
-    splash_label.pack()
+    splash_label.place(relx = 0.5, 
+                   rely = 0.5,
+                   anchor = 'center')
+    
 
     return splash_root
 
@@ -69,7 +72,7 @@ def t():
 # Define the root window
 """we're defining root window as a function so we can control when it's called.Otherwise, bc python is an interpreted language, it'll run line by line and we wont be able to cntrol when it runs"""
 
-
+#main window
 def root_window():
     root = Tk()
     root.title("Automated timetable maker")
@@ -81,6 +84,18 @@ def root_window():
     sub.place(x=1, y=2)
     teacher = ttk.Button(root, text="ADD TEACHER", command=t)
     teacher.place(x=150, y=5)
+    
+
+    #window for the information window
+    def info_window():
+        iw = Tk()
+        iw.title("How to operate")
+        iw.geometry("500x500")
+        iw_label = Label(
+        iw, text="information to be added")
+        iw_label.place(relx = 0.5, 
+                   rely = 0.5,
+                   anchor = 'center')
 
     # information icon
     prof_button = PhotoImage(file=r"C:\Users\ITS\Desktop\i_btn.png", height=30)
@@ -90,13 +105,16 @@ def root_window():
             text="info",
             image=prof_button,
             # Change this function to the thing you want to show for information
-            command=lambda: print("button clicked"),
+            command=info_window
         )
         .pack(side=TOP)
         .place(x=500, y=2)
     )
 
     return root
+ 
+    
+        
 
 
 def run_mainloop():  # again defining it as a function to control when it's run
