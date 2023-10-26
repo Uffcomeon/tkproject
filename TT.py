@@ -21,14 +21,14 @@ from tkinter import ttk
 # welcome window
 def splash_screen():
     splash_root = Tk()
-
+    splash_root.configure(bg='cyan')
     width = (
         splash_root.winfo_screenwidth()
     )  # to make the welcome window the size of the user's screen
     height = splash_root.winfo_screenheight()
     splash_root.geometry(f"{width}x{height}")
     splash_label = Label(
-        splash_root, text="WELCOME :)", font=("Rosewood Std Regular", 50)
+        splash_root, text="WELCOME", font=("newspaper", 50)
     )  # text on the welcome screen
     splash_label.pack()
 
