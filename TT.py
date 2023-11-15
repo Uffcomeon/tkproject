@@ -160,6 +160,4 @@ splash_root.after(
 # run the splash screen
 splash_root.mainloop()
 
-...
 
-[Message clipped]  View entire message
