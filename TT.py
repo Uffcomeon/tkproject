@@ -1,9 +1,11 @@
+
+
 """
-  _______                __        __    __       
- /_  __(_)___ ___  ___  / /_____ _/ /_  / /__     
+  _______                __        __    __      
+ /_  __(_)___ ___  ___  / /_____ _/ /_  / /__    
   / / / / __ `__ \/ _ \/ __/ __ `/ __ \/ / _ \    
  / / / / / / / / /  __/ /_/ /_/ / /_/ / /  __/    
-/_/_/_/_/ /_/ /_/\___/\__/\__,_/_.___/_/\___/     
+/_/_/_/_/ /_/ /_/\___/\__/\__,_/_.___/_/\___/    
   / ____/__  ____  ___  _________ _/ /_____  _____
  / / __/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/
 / /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /    
@@ -11,27 +13,11 @@
 Built by:
 Aditi
 Pavani
-Shivakshi                                                   
+Shivakshi                                                  
 """
 
-'''from tkinter import*
-window_sub=Tk()
-window_sub.geometry('300x300')
-l1=Label(window_sub,text='Type down the subject you wish to add',font=('arial',10))
-l1.place(x=20,y=20)
-sub=StringVar()
-entry1=Entry(window_sub,textvar=sub)
-entry1.place(x=40,y=50)
-def p():
-    Sub=sub.get()
-def quit():
-    exit()
-    
-subbutton=Button(window_sub,text='Add',fg='white',bg='red',command=p)
-subbutton.place(x=40,y=100)
-subbutton2=Button(window_sub,text='Quit',fg='white',bg='red',command=quit)
-subbutton2.place(x=80,y=100)
-window_sub.mainloop()'''
+
+
 from tkinter import *
 from tkinter import ttk
 
@@ -48,10 +34,10 @@ def splash_screen():
     splash_label = Label(
         splash_root, text="WELCOME", font=("newspaper", 50)
     )  # text on the welcome screen
-    splash_label.place(relx = 0.5, 
+    splash_label.place(relx = 0.5,
                    rely = 0.5,
                    anchor = 'center')
-    
+   
 
     return splash_root
 
@@ -62,28 +48,29 @@ def s():
        window_sub.geometry('300x300')
        l1=Label(window_sub,text='Type down the subject you wish to add',font=('arial',10))
        l1.place(x=20,y=20)
-       l2=Label(window_sub,text='Enter duration',font=('arial',10))
-       l2.place(x=20,y=80)
        sub=StringVar()
-       duration=StringVar()
        entry1=Entry(window_sub,textvar=sub)
        entry1.place(x=40,y=50)
-       entry2=Entry(window_sub,textvar=duration)
-       entry2.place(x=40,y=100)
+       def p():
+            Sub=sub.get()
+       def quit():
+            exit()
+           
+       subbutton=Button(window_sub,text='Add',fg='white',bg='red',command=p)
+       subbutton.place(x=40,y=100)
+       subbutton2=Button(window_sub,text='Quit',fg='white',bg='red',command=quit)
+       subbutton2.place(x=80,y=100)
+       window_sub.mainloop()
        def p():
             Sub=sub.get()
        def dur():
            Dur=dur.get()
 
-            
+           
        def quit():
             exit()
-    
-       subbutton=Button(window_sub,text='Add',fg='white',bg='red',command=p)
-       subbutton.place(x=40,y=200)
-       subbutton2=Button(window_sub,text='Quit',fg='white',bg='red',command=quit)
-       subbutton2.place(x=80,y=200)
-       window_sub.mainloop()
+   
+     
 
 
 
@@ -118,7 +105,7 @@ def root_window():
     sub.place(x=1, y=2)
     teacher = ttk.Button(root, text="ADD TEACHER", command=t)
     teacher.place(x=150, y=5)
-    
+   
 
     #window for the information window
     def info_window():
@@ -127,7 +114,7 @@ def root_window():
         iw.geometry("500x500")
         iw_label = Label(
         iw, text="information to be added")
-        iw_label.place(relx = 0.5, 
+        iw_label.place(relx = 0.5,
                    rely = 0.5,
                    anchor = 'center')
 
@@ -147,8 +134,8 @@ def root_window():
 
     return root
  
-    
-        
+   
+       
 
 
 def run_mainloop():  # again defining it as a function to control when it's run
@@ -172,3 +159,7 @@ splash_root.after(
 )  # calling run_mainloop and not run_mainloop() because we want it to go to the function and execute it,not call the function itself
 # run the splash screen
 splash_root.mainloop()
+
+...
+
+[Message clipped]  View entire message
