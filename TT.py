@@ -89,10 +89,20 @@ def t():
     submit.place(x=120, y=80)
 
 
-# Prepare the root window
-# Define the root window
-"""we're defining root window as a function so we can control when it's called.Otherwise, bc python is an interpreted language, it'll run line by line and we wont be able to cntrol when it runs"""
-
+#Class addition
+def c():
+    window_c = Tk()
+    window_c.title("Add class")
+    window_c.geometry("400x250")
+    l3 = Label(window_c, text="Class:")
+    l3.pack()
+    l3.place(x=20, y=5)
+    e2 = Entry(window_c, width=50)
+    e2.pack
+    e2.place(x=80, y=5)
+    submit2 = ttk.Button(window_c, text="SUBMIT")
+    submit2.place(x=120, y=80)
+        
 #main window
 def root_window():
     root = Tk()
@@ -104,8 +114,9 @@ def root_window():
     sub = ttk.Button(root, text="ADD SUBJECT", command=s)
     sub.place(x=1, y=2)
     teacher = ttk.Button(root, text="ADD TEACHER", command=t)
-    teacher.place(x=150, y=5)
-   
+    teacher.place(x=1, y=50)
+    classs=ttk.Button(root, text="ADD CLASS" , command=c)
+    classs.place(x=1, y=100)
 
     #window for the information window
     def info_window():
@@ -156,7 +167,7 @@ splash_root = splash_screen()
 # splash screen timer
 splash_root.after(
     1 * SECOND, run_mainloop
-)  # calling run_mainloop and not run_mainloop() because we want it to go to the function and execute it,not call the function itself
+) 
 # run the splash screen
 splash_root.mainloop()
 
