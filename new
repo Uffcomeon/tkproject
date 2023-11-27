@@ -159,6 +159,20 @@ def c():
     submit2.place(x=120, y=80)
 
 
+def qod():
+    window_q=Tk()
+    window_q.title("Smile:)")
+    window_q.geometry("300x150")
+    l4=Label(window_q, text="Life is not a fairy tale if you lose your shoe")
+    l4.pack()
+    l4.place(x=20,y=5)
+    l5=Label(window_q, text="at midnight you are drunk")
+    l5.pack()
+    l5.place(x=20,y=30)
+    l6=Label(window_q, text="GO HOME!")
+    l6.pack()
+    l6.place(x=20,y=55)
+
 
   
         
@@ -172,20 +186,28 @@ def root_window():
     root.geometry(f"{width}x{height}")
     root.minsize(900, 400)
 
+    bg2=PhotoImage(file=r"C:\Users\Rajat Mishra\Downloads\imjobless.png", height=640,width=1300)
+    bgg = Label( root, image = bg2) 
+    bgg.place(x=0,y=0)
+    
     sub = ttk.Button(root, text="ADD SUBJECT", command=s)
-    sub.place(x=1, y=2)
+    sub.place(x=150, y=300)
 
     teacher = ttk.Button(root, text="ADD TEACHER", command=t)
-    teacher.place(x=1, y=50)
+    teacher.place(x=250, y=300)
 
     classs=ttk.Button(root, text="ADD CLASS" , command=c)
-    classs.place(x=1, y=100)
+    classs.place(x=350, y=300)
     
     save=ttk.Button(root,text="SAVE",command=saved)
-    save.place(x=1,y=150)
+    save.place(x=450,y=300)
 
     save_show=ttk.Button(root,text="SAVE AND SHOW",command=ps)
-    save_show.place(x=1,y=200)
+    save_show.place(x=550,y=300)
+
+    today=ttk.Button(root,text="QUOTE OF THE DAY",command=qod)
+    today.place(x=680,y=300)
+
 
     #window for the information window
     def info_window():
