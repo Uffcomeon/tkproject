@@ -181,8 +181,11 @@ def root_window():
     classs=ttk.Button(root, text="ADD CLASS" , command=c)
     classs.place(x=1, y=100)
     
-    previouss=ttk.Button(root,text="SAVE",command=saved)
-    previouss.place(x=1,y=150)
+    save=ttk.Button(root,text="SAVE",command=saved)
+    save.place(x=1,y=150)
+
+    save_show=ttk.Button(root,text="SAVE AND SHOW",command=ps)
+    save_show.place(x=1,y=200)
 
     #window for the information window
     def info_window():
@@ -219,7 +222,7 @@ def saved():
 #previously saved button
 def ps(): 
     window3 = Tk()
-    window3.title("Previously saved")
+    window3.title("Timetable")
     window3.geometry("1000x1000")
     l3 = Label(window3 )
     l3.pack()
