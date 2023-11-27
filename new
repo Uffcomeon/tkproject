@@ -240,15 +240,20 @@ def saved():
  df = pandas.DataFrame(data=dictionari)
  print(df)
 
- 
 #previously saved button
 def ps(): 
-    window3 = Tk()
-    window3.title("Timetable")
-    window3.geometry("1000x1000")
-    l3 = Label(window3 )
-    l3.pack()
-    l3.place(x=120, y=80)
+    window_ps = Tk()
+    window_ps.title("Timetable")
+    window_ps.geometry("1000x1000")
+    l7 = Label(window_ps,text="Class:"f"{Class}")
+    l7.pack()
+    l7.place(x=20, y=5)
+    l8=Label(window_ps, text="Teachers:"f"{Teacher}")
+    l8.pack()
+    l8.place(x=20,y=30)
+    l9=Label(window_ps, text="Subjects:"f"{Subjects}")
+    l9.pack()
+    l9.place(x=20,y=55)
     
     
 
