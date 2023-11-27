@@ -1,0 +1,255 @@
+
+
+"""
+  _______                __        __    __      
+ /_  __(_)___ ___  ___  / /_____ _/ /_  / /__    
+  / / / / __ `__ \/ _ \/ __/ __ `/ __ \/ / _ \    
+ / / / / / / / / /  __/ /_/ /_/ / /_/ / /  __/    
+/_/_/_/_/ /_/ /_/\___/\__/\__,_/_.___/_/\___/    
+  / ____/__  ____  ___  _________ _/ /_____  _____
+ / / __/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/
+/ /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /    
+\____/\___/_/ /_/\___/_/   \__,_/\__/\____/_/  
+Built by:
+Aditi
+Pavani
+Shivakshi                                                  
+"""
+
+
+
+from tkinter import *
+from tkinter import ttk
+import pandas
+
+
+
+Teacher=[]
+Subjects=[]
+Class=[]
+dictionari={"professor":Teacher,"Subjects":Subjects,"Class":Class}
+
+
+
+# 1 Second in miliseconds
+SECOND = 1000  # python considers time in milliseconds
+
+# welcome window
+def splash_screen():
+    splash_root = Tk()
+    #splash_root.configure(bg='cyan')
+    width = (
+        splash_root.winfo_screenwidth()
+    )  # to make the welcome window the size of the user's screen
+    height = splash_root.winfo_screenheight()
+    splash_root.geometry(f"{width}x{height}")
+    splash_label = Label(
+        splash_root, text="WELCOME", font=("newspaper", 50)
+    )  # text on the welcome screen
+    splash_label.place(relx = 0.5,
+                   rely = 0.5,
+                   anchor = 'center')
+   
+
+    return splash_root
+
+#Added! button
+def added():
+    add=Tk()
+    added_label= Label(add, text="Added!").pack(side=TOP)
+    add.geometry("50x50")
+    add = added()
+
+
+# Subject Selection Screen
+def s():
+       window_sub=Tk()
+       window_sub.geometry('300x300')
+       l1=Label(window_sub,text='Type down the subject you wish to add',font=('arial',10))
+       l1.place(x=20,y=20)
+       sub=StringVar()
+       entry1=Entry(window_sub,textvar=sub)
+       entry1.place(x=40,y=50)
+       '''def p():
+            Sub=sub.get()
+       def quit():
+            exit()'''
+       
+       #function to retrive data from "add" button
+       def get_it():
+         subject= entry1.get() 
+         Subjects.append(subject)
+         print(Subjects)
+
+        
+         
+       def clear_entry():
+        entry1.delete(0, 'end')
+
+           
+       subbutton=Button(window_sub,text='Add',fg='white',bg='red',command=lambda:[ get_it(), clear_entry()])
+       subbutton.place(x=40,y=100)
+
+       '''subbutton2=Button(window_sub,text='Quit',fg='white',bg='red',command=quit)
+       subbutton2.place(x=80,y=100)'''
+
+       window_sub.mainloop()
+       def p():
+            Sub=sub.get()
+       def dur():
+           Dur=dur.get()
+
+           
+       def quit():
+            exit()
+   
+     
+
+
+
+# Teacher Selection Screen
+def t():
+    window2 = Tk()
+    window2.title("Add Teachers")
+    window2.geometry("400x250")
+    l2 = Label(window2, text="Name:")
+    l2.pack()
+    l2.place(x=20, y=5)
+    e = Entry(window2, width=50)
+    e.pack
+    e.place(x=80, y=5)
+     
+    #function to retrive data from "add" button
+    def get_it1():
+         teacher= e.get() 
+         Teacher.append(teacher)
+         print(Teacher)
+
+    #function to clear textbox after clicking enter
+    def clear_entry1():
+     e.delete(0, 'end')
+
+
+    submit = ttk.Button(window2, text="SUBMIT",command=lambda:[ get_it1(), clear_entry1()])
+    
+    submit.place(x=120, y=80)
+
+
+#Class addition
+def c():
+    window_c = Tk()
+    window_c.title("Add class")
+    window_c.geometry("400x250")
+    l3 = Label(window_c, text="Class:")
+    l3.pack()
+    l3.place(x=20, y=5)
+    e2 = Entry(window_c, width=50)
+    e2.pack
+    e2.place(x=80, y=5)
+
+    def get_it2():
+        classs=e2.get()
+        Class.append(classs)
+        print(Class)
+
+    def clear_entry2():
+     e2.delete(0, 'end')
+    
+    submit2 = ttk.Button(window_c, text="SUBMIT",command=lambda:[ get_it2(), clear_entry2()])
+    submit2.place(x=120, y=80)
+
+
+
+  
+        
+#main window
+def root_window():
+    
+    root = Tk()
+    root.title("Automated timetable maker")
+    width = root.winfo_screenwidth()  # to make window the size of the user's screen
+    height = root.winfo_screenheight()
+    root.geometry(f"{width}x{height}")
+    root.minsize(900, 400)
+
+    sub = ttk.Button(root, text="ADD SUBJECT", command=s)
+    sub.place(x=1, y=2)
+
+    teacher = ttk.Button(root, text="ADD TEACHER", command=t)
+    teacher.place(x=1, y=50)
+
+    classs=ttk.Button(root, text="ADD CLASS" , command=c)
+    classs.place(x=1, y=100)
+    
+    previouss=ttk.Button(root,text="SAVE",command=saved)
+    previouss.place(x=1,y=150)
+
+    #window for the information window
+    def info_window():
+        iw = Tk()
+        iw.title("How to operate")
+        iw.geometry("500x500")
+        iw_label = Label(
+        iw, text="information to be added")
+        iw_label.place(relx = 0.5,
+                   rely = 0.5,
+                   anchor = 'center')
+
+    # information icon
+    prof_button = PhotoImage(file=r"C:\Users\ITS\Desktop\i_btn.png", height=30)
+    prof_label = (
+        Button(
+            root,
+            text="info",
+            image=prof_button,
+            # Change this function to the thing you want to show for information
+            command=info_window
+        )
+        .pack(side=TOP)
+        .place(x=500, y=100)
+    )
+
+    return root
+
+def saved(): 
+ df = pandas.DataFrame(data=dictionari)
+ print(df)
+
+ 
+#previously saved button
+def ps(): 
+    window3 = Tk()
+    window3.title("Previously saved")
+    window3.geometry("1000x1000")
+    l3 = Label(window3 )
+    l3.pack()
+    l3.place(x=120, y=80)
+    
+    
+
+
+   
+       
+
+
+def run_mainloop():  # again defining it as a function to control when it's run
+    # destroy the splash screen
+    splash_root.destroy()
+    # create and run the main screen
+    root = root_window()
+    root.mainloop()
+
+
+
+
+# create the splash screen
+splash_root = splash_screen()
+# setup the main screen to run 1 second after the splash screen
+# pass the `run_mainloop` function as a variable to the after function
+# splash screen timer
+splash_root.after(
+    1 * SECOND, run_mainloop
+) 
+# run the splash screen
+splash_root.mainloop()
+
