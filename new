@@ -208,6 +208,38 @@ def root_window():
     today=ttk.Button(root,text="QUOTE OF THE DAY",command=qod)
     today.place(x=680,y=300)
 
+    #adding light and dark mode cuz im extra (idw do chem)
+
+    light = PhotoImage(file=r"C:\Users\ITS\Desktop\light!.png") 
+    dark = PhotoImage(file=r"C:\Users\ITS\Desktop\dark!.png") 
+
+
+    def toggle(): 
+  
+     global switch_value 
+     if switch_value == True: 
+        switch.config(image=dark, bg="#26242f", 
+                      activebackground="#26242f") 
+        root.config(bg="#26242f")   
+        switch_value = False
+    
+     else: 
+        switch.config(image=light, bg="white",  
+                      activebackground="white") 
+          
+        # Changes the window to light theme 
+        root.config(bg="white")   
+        switch_value = True
+
+    switch = Button(root, image=light,  
+                bd=0, bg="white", 
+                activebackground="white",  
+                command=toggle) 
+            
+               
+    switch.pack(side=TOP)
+    switch.place(x=1100, y=0)
+
 
     #window for the information window
     def info_window():
