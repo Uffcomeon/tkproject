@@ -1,0 +1,337 @@
+
+
+
+"""
+  _______                __        __    __      
+ /_  __(_)___ ___  ___  / /_____ _/ /_  / /__    
+  / / / / __ `__ \/ _ \/ __/ __ `/ __ \/ / _ \    
+ / / / / / / / / /  __/ /_/ /_/ / /_/ / /  __/    
+/_/_/_/_/ /_/ /_/\___/\__/\__,_/_.___/_/\___/    
+  / ____/__  ____  ___  _________ _/ /_____  _____
+ / / __/ _ \/ __ \/ _ \/ ___/ __ `/ __/ __ \/ ___/
+/ /_/ /  __/ / / /  __/ /  / /_/ / /_/ /_/ / /    
+\____/\___/_/ /_/\___/_/   \__,_/\__/\____/_/  
+Built by:
+Aditi
+Pavani
+Shivakshi                                                  
+"""
+
+
+
+from tkinter import *
+from tkinter import ttk
+import pandas
+
+switch_value = True
+
+
+
+Teacher_subjects={"Subjects": [],"Teachers":[],"frequency":[] }
+#1st nested= subject
+#2nd nested= teacher
+#3rd nested= number of times
+
+Class_Section=""
+
+
+
+# 1 Second in miliseconds
+SECOND = 1000  # python considers time in milliseconds
+
+# welcome window
+def splash_screen():
+    splash_root = Tk()
+    #splash_root.configure(bg='cyan')
+    width = (
+        splash_root.winfo_screenwidth()
+    )  # to make the welcome window the size of the user's screen
+    height = splash_root.winfo_screenheight()
+    splash_root.geometry(f"{width}x{height}")
+    splash_label = Label(
+        splash_root, text="WELCOME", font=("newspaper", 50)
+    )  # text on the welcome screen
+    splash_label.place(relx = 0.5,
+                   rely = 0.5,
+                   anchor = 'center')
+   
+
+    return splash_root
+
+   
+
+# Subject Selection Screen
+def s():
+       
+       #subject
+       window_sub=Tk()
+       window_sub.geometry('450x450')
+      
+       
+       #subject
+       sub=StringVar()
+       entry1=Entry(window_sub,textvar=sub)
+       entry1.place(x=40,y=50)
+       l1=Label(window_sub,text='Type down the subject you wish to add',font=('arial',10))
+       l1.place(x=20,y=20)
+       
+       
+       #teacher
+       e = Entry(window_sub)
+       e.pack
+       e.place(x=40, y=160)
+       l2 = Label(window_sub, text="Name of teacher:")
+       l2.pack()
+       l2.place(x=20, y=130)
+        
+       #no.of repetitions
+       e2= Entry(window_sub)
+       number= IntVar()
+       e2.place(x=40,y=270)
+       haha= Label(window_sub,text="How many times do you want this class in a week?")
+       haha.pack()
+       haha.place(x=20,y=230)
+
+       
+       #function to retrive data from "add" button
+       def get_it():
+         subject= entry1.get() 
+         Teacher_subjects["Subjects"].append(subject)
+         
+         teacher= e.get() 
+         Teacher_subjects["Teachers"].append(teacher)
+         
+         number_times = e2.get()
+         Teacher_subjects["frequency"].append(number_times)
+         
+         print(Teacher_subjects)
+        
+       
+    #function to clear textbox after clicking enter
+       
+        
+
+       def clear_entry():
+        entry1.delete(0, 'end')
+        e.delete(0, 'end')
+        e2.delete(0,'end')
+       subbutton=Button(window_sub,text='Add',fg='white',bg='red',command=lambda:[ get_it(), clear_entry()])
+       subbutton.place(x=40,y=330)
+
+
+       window_sub.mainloop()
+       def p():
+            Sub=sub.get()
+       def dur():
+           Dur=dur.get()
+
+           
+       def quit():
+            exit()
+   
+     
+#Added! button
+def added():
+     add=Tk()
+    
+     added_label= Label(root_window, text="Added!",bg='green').pack()
+     added_label.after(10, added_label.destroy())
+     add.geometry("50x50")
+
+
+    
+#Class addition
+def c():
+    window_c = Tk()
+    window_c.title("Add class")
+    window_c.geometry("400x250")
+
+    combo = ttk.Combobox(window_c,state="readonly",
+    values=['NURSERY','LKG',"UKG",'I',"II","III",'IV','V','VI','VII','VIII','IX','X','XI','XII'])
+    combo.place(x=25,y=50)
+
+    l3 = Label(window_c, text="Class:")
+    l3.pack()
+    l3.place(x=20, y=5)
+
+    combo2=ttk.Combobox(window_c,state="readonly",
+    values=["A","B","C","D","E"])
+    combo2.place(x=200,y=50)
+
+    l = Label(window_c, text="Section:")
+    l.pack()
+    l.place(x=200, y=5)
+
+
+    def get_it2():
+        print("lol")
+        print(combo)
+        content = combo.currentText()
+        Class_Section+content
+        print(Class_Section)
+    
+    def get_it3():
+        section=combo2.get()
+        mystring1 =str(combo2.currentText() )
+        Class_Section+mystring1
+        print(combo)
+
+
+    def clear_entry2():
+       combo.delete(0, 'end')
+       combo2.delete(0, 'end')
+    
+    
+    submit2 = ttk.Button(window_c, text="SUBMIT",command=lambda:[ get_it2(),get_it3(),clear_entry2()])
+    submit2.place(x=120, y=100)
+
+
+def qod():
+    window_q=Tk()
+    window_q.title("Smile:)")
+    window_q.geometry("300x150")
+    l4=Label(window_q, text="Life is not a fairy tale if you lose your shoe")
+    l4.pack()
+    l4.place(x=20,y=5)
+    l5=Label(window_q, text="at midnight you are drunk")
+    l5.pack()
+    l5.place(x=20,y=30)
+    l6=Label(window_q, text="GO HOME!")
+    l6.pack()
+    l6.place(x=20,y=55)
+
+
+  
+        
+#main window
+def root_window():
+    
+    root = Tk()
+    root.title("Automated timetable maker")
+    width = root.winfo_screenwidth()  # to make window the size of the user's screen
+    height = root.winfo_screenheight()
+    root.geometry(f"{width}x{height}")
+    root.minsize(900, 400)
+    
+    
+    sub = ttk.Button(root, text="ADD SUBJECT", command=s)
+    sub.place(x=350, y=300)
+
+
+    classs=ttk.Button(root, text="ADD CLASS" , command=c)
+    classs.place(x=150, y=300)
+    
+    '''save=ttk.Button(root,text="SAVE",command=saved)
+    save.place(x=450,y=300)
+
+    save_show=ttk.Button(root,text="SAVE AND SHOW",command=ps)
+    save_show.place(x=550,y=300)'''
+
+    today=ttk.Button(root,text="QUOTE OF THE DAY",command=qod)
+    today.place(x=680,y=300)
+
+    
+    
+    
+
+       #adding light and dark mode cuz im extra (idw do chem)
+
+    light = PhotoImage(file=r"C:\Users\ITS\Desktop\light!.png") 
+    dark = PhotoImage(file=r"C:\Users\ITS\Desktop\dark!.png") 
+
+
+    def toggle(): 
+  
+     global switch_value 
+     if switch_value == True: 
+        switch.config(image=dark, bg="#26242f", 
+                      activebackground="#26242f") 
+        root.config(bg="#26242f")   
+        switch_value = False
+    
+     else: 
+        switch.config(image=light, bg="white",  
+                      activebackground="white") 
+          
+        # Changes the window to light theme 
+        root.config(bg="white")   
+        switch_value = True
+
+    switch = Button(root, image=light,  
+                bd=0, bg="white", 
+                activebackground="white",  
+                command=toggle) 
+            
+               
+    switch.pack(side=TOP)
+    switch.place(x=1100, y=0)
+
+
+    #window for the information window
+    def info_window():
+        iw = Tk()
+        iw.title("How to operate")
+        iw.geometry("500x500")
+        iw_label = Label(
+        iw, text="information to be added")
+        iw_label.place(relx = 0.5,
+                   rely = 0.5,
+                   anchor = 'center')
+
+    # information icon
+   
+    
+
+    return root
+
+'''def saved(): 
+ df = pandas.DataFrame(data=dictionari)
+ print(df)
+ df['Teacher'] = df['Teacher'].astype("string")
+ df['Subjects'] = df['Subjects'].astype("string")
+ df['Class'] = df['Class'].astype("string")
+
+ 
+#previously saved button
+def ps(): 
+    window_ps = Tk()
+    window_ps.title("Timetable")
+    window_ps.geometry("1000x1000")
+    l7 = Label(window_ps,text="Class:"f"{Class}")
+    l7.pack()
+    l7.place(x=20, y=5)
+    l8=Label(window_ps, text="Teachers:"f"{Teacher}")
+    l8.pack()
+    l8.place(x=20,y=30)
+    l9=Label(window_ps, text="Subjects:"f"{Subjects}")
+    l9.pack()
+    l9.place(x=20,y=55)'''
+    
+    
+
+
+   
+       
+
+
+def run_mainloop():  # again defining it as a function to control when it's run
+    # destroy the splash screen
+    splash_root.destroy()
+    # create and run the main screen
+    root = root_window()
+    root.mainloop()
+
+
+
+
+# create the splash screen
+splash_root = splash_screen()
+# setup the main screen to run 1 second after the splash screen
+# pass the `run_mainloop` function as a variable to the after function
+# splash screen timer
+splash_root.after(
+    1 * SECOND, run_mainloop
+) 
+# run the splash screen
+splash_root.mainloop()
+
